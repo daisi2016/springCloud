@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<h1 th:text="${title}">Hello World</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td >id</td>
+      <td >name</td>
+      <td >code</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="user:${users}">
+     	<td th:text="${#numbers.formatDecimal(user.id,1,0)}">3</td>
+      <td th:text="${user.name}">1</td>
+      <td th:text="${user.code}">2</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

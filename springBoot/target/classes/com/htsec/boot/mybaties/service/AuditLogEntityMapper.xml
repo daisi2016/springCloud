@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htsec.boot.mybaties.service.AuditLogEntityMapper">
+<resultMap type="com.htsec.boot.model.AuditLogEntity" id="baseMapper" >
+<id column="id"  property="id" />
+<result column="AUDIT_LOG"  property="auditLog"/>
+<result column="ACCEPT_SERIAL_NO"  property="acceptSerialNo"/>
+<result column="AUDIT_RESULT" property="auditResult"/>
+</resultMap>
+<select id="getCount"   resultType="java.lang.Integer" >
+	select count(id) from SCOS_AUDIT_LOG
+</select>
+<!-- <select id="findById" parameterType="java.lang.Long"   resultMap="baseMapper">
+	select id,AUDIT_LOG,ACCEPT_SERIAL_NO,AUDIT_RESULT from SCOS_AUDIT_LOG where id=#{id}
+</select> -->
+<select id="findById" parameterType="java.lang.Long"  resultType="com.htsec.boot.model.AuditLogEntity">
+	select * from SCOS_AUDIT_LOG where id=#{id}
+</select>
+
+<select id="getPageData"  parameterType="com.htsec.boot.mybaties.service.PagingBo" resultType="com.htsec.boot.model.AuditLogEntity" >
+	select * from (select sm.*,rownumber() over(order by id asc ) as rowid from SCOS_AUDIT_LOG as sm where 1=1 
+	<if test="paramMap.auditResult!=null and paramMap.auditResult!=''">
+	and sm.AUDIT_RESULT=#{paramMap.auditResult}
+	<!-- and sm.AUDIT_RESULT=${paramMap.auditResult} 参数需要加引号 -->
+	</if>
+	)as a where a.rowid > #{start} AND  #{pagesize}>= a.rowid
+</select>
+
+
+
+
+</mapper>

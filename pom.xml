@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>spring.Cloud</groupId>
+  <artifactId>springCloud</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>springCloud</name>
+  
+  <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.5.RELEASE</version>
+	</parent>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Brixton.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+  
+  <modules>
+  	<module>spring-eureka-service-center</module>
+  	<module>business-service</module>
+  	<module>spring-ribbon-client</module>
+  	<module>business-service2</module>
+  	<module>spring-feign-client</module>
+  	<module>spring-zuul-service</module>
+  	<module>springBoot</module>
+  </modules>
+  <build> 
+  <plugins> 
+    <plugin> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-maven-plugin</artifactId>  
+      <configuration> 
+        <executable>true</executable> 
+      </configuration> 
+    </plugin> 
+  </plugins> 
+</build>
+  
+  
+</project>
