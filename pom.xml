@@ -31,6 +31,7 @@
   	<module>spring-feign-client</module>
   	<module>spring-zuul-service</module>
   	<module>springBoot</module>
+  	<module>spring-config</module>
   </modules>
   <build> 
   <plugins> 
