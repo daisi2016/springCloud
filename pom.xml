@@ -10,7 +10,10 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.3.5.RELEASE</version>
-	</parent>
+</parent>
+	<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+ 	 </properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -32,6 +35,7 @@
   	<module>spring-zuul-service</module>
   	<module>springBoot</module>
   	<module>spring-config</module>
+  	<module>spring-sleuth-center</module>
   </modules>
   <build> 
   <plugins> 

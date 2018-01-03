@@ -9,5 +9,4 @@ public class BusinessAcceptServiceFallback implements BusinessAcceptService {
 	public String getAcceptSerio(String client, String certNo) {
 		return "-9999";
 	}
-
 }

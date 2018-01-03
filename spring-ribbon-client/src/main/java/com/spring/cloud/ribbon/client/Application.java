@@ -11,17 +11,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 
+//@SpringCloudApplication  //整合@SpringBootApplication、@EnableDiscoveryClient、@EnableCircuitBreaker
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableCircuitBreaker//断路器
-//@SpringCloudApplication  //整合@SpringBootApplication、@EnableDiscoveryClient、@EnableCircuitBreaker
 public class Application {
 	@Bean
 	@LoadBalanced
 	RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}

@@ -5,10 +5,14 @@ import javax.servlet.http.HttpServletRequest;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
+/**自定义过滤器
+ * @author dais
+ *
+ */
 public class AccessFilter extends ZuulFilter{
 
 	@Override
-	public Object run() {
+	public Object run() {//需要执行的过滤逻辑
 		 RequestContext ctx = RequestContext.getCurrentContext();
 	        HttpServletRequest request = ctx.getRequest();
 	        Object client = request.getParameter("client");
